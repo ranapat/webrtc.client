@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/fast_scroller_bar"
+        android:layout_width="@dimen/fast_scroller_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@color/fast_scroller_bar" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end">
+
+        <!-- No margin, use padding at the handle -->
+        <TextView
+            android:id="@+id/fast_scroller_bubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_toStartOf="@+id/fast_scroller_handle"
+            android:background="@drawable/fast_scroller_bubble"
+            android:gravity="center"
+            android:paddingStart="@dimen/global_spacing_xs"
+            android:paddingEnd="@dimen/global_spacing_xs"
+            android:textColor="?android:attr/textColorPrimaryInverse"
+            android:textSize="@dimen/fast_scroller_text_size"
+            android:visibility="gone"
+            tools:text="A"
+            tools:visibility="visible" />
+
+        <!-- Padding is here to have better grab -->
+        <ImageView
+            android:id="@+id/fast_scroller_handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@null"
+            android:paddingStart="14dp"
+            android:src="@drawable/fast_scroller_handle"
+            tools:ignore="RtlSymmetry" />
+
+    </RelativeLayout>
+
+</merge>

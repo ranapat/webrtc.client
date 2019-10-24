@@ -1,0 +1,51 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="logo">Logo</string>
+
+    <string name="generic_error">generic error</string>
+    <string name="retry">retry</string>
+
+    <string name="empty_string"> </string>
+    <string name="main_drawer_close">close</string>
+
+    <string name="navigation_back_description">go back</string>
+    <string name="navigation_close">close</string>
+
+    <string name="no_network_connection_available">Connection to educational platform lost.\nPlease check your network and try again.</string>
+
+    <string name="crash_report_app_version_title">Version</string>
+
+    <string name="search">Search</string>
+
+    <string name="main_error_loading">Error loading streams</string>
+    <string name="close_search">Close search</string>
+    <string name="clear_search">Clear search</string>
+    <string name="screen_saver_error_loading">Error loading</string>
+    <string name="name_not_found">Name not found on this address</string>
+
+    <string name="select_language_header">Select language</string>
+
+    <string name="language_de">German</string>
+    <string name="language_en">English</string>
+    <string name="language_fr">French</string>
+    <string name="language_sv">Swedish</string>
+    <string name="language_da">Danish</string>
+    <string name="language_al">Albanian</string>
+    <string name="language_bg">Bulgarian</string>
+
+    <string name="call_error">Error starting call</string>
+    <string name="call_status_icon">call status</string>
+    <string name="call_status_not_available">not available</string>
+    <string name="call_status_ended">ended</string>
+    <string name="call_status_busy">busy</string>
+    <string name="call_status_cancel">cancel</string>
+    <string name="call_status_ringing">ringing</string>
+    <string name="call_status_initializing_call">initializing</string>
+    <string name="call_status_calling">calling</string>
+    <string name="call_status_connected">connected</string>
+    <string name="call_open_door_message">Please open the door now.</string>
+    <string name="call_cancel" tools:ignore="ButtonCase">cancel</string>
+    <string name="call_back" tools:ignore="ButtonCase">back</string>
+    <string name="call_hang_up" tools:ignore="ButtonCase">hang up</string>
+
+</resources>

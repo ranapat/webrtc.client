@@ -1,0 +1,5 @@
+<resources>
+    <bool name="is_right_to_left">true</bool>
+
+    <integer name="direction_degree">180</integer>
+</resources>

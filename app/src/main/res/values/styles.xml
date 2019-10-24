@@ -1,0 +1,31 @@
+<resources>
+
+    <style name="NavigationDrawerStyle">
+        <item name="android:textSize">@dimen/menu_font_size</item>
+        <item name="android:fontFamily">@font/verdana</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/ak_blue</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/ak_blue</item>
+    </style>
+
+    <style name="TextAppearance" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/ak_font_color</item>
+        <item name="android:textSize">@dimen/font_size</item>
+        <item name="android:fontFamily">@font/verdana</item>
+    </style>
+
+    <style name="TextAppearance.Blue">
+        <item name="android:textColor">@color/ak_blue</item>
+    </style>
+
+</resources>

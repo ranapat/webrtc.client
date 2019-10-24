@@ -1,0 +1,103 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+        version_code = 1
+        version_name = "1.0.0.0"
+
+        sdk_compile_version = 28
+        sdk_min_version = 21
+        sdk_target_version = 28
+
+        gradle_version = '3.5.1'
+        kotlin_version = "1.3.41"
+        google_services_version = "4.2.0"
+
+        anko = '0.10.8'
+        appcompat = '1.1.0-beta01'
+        cardview = '1.0.0'
+        commons_codec = '1.11'
+        commons_io = '2.6'
+        constraint_layout = '2.0.0-beta1'
+        core_ktx = '1.0.1'
+        firebase_core = '16.0.9'
+        firebase_messaging = '18.0.0'
+        flexible_rv_adapter = '5.1.0'
+        flexible_rv_adapter_ui = '1.0.0'
+        glide = '4.8.0'
+        grid_layout = '1.0.0'
+        legacy_support_v4 = '1.0.0'
+        lifecycle = '2.1.0-alpha01'
+        lottie = '3.0.7'
+        material = '1.1.0-alpha07'
+        okhttp = '3.10.0'
+        play_services_auth = '16.0.1'
+        preference = '1.0.0'
+        rxandroid = '2.1.0'
+        rxjava = '2.2.3'
+        shimmer_layout = '2.1.0'
+        socket_io = '1.0.0'
+        swipelayout = '1.2.0@aar'
+        timber = '4.7.1'
+        webrtc = '1.0.+'
+        zxing_android = '3.6.0'
+    }
+
+    ext.test = [
+            test_ext           : '1.1.0',
+            test_runner        : '1.1.1',
+            test_rules         : '1.1.1',
+            espresso           : '3.1.0-alpha4',
+            junit              : '4.12',
+            json               : '20140107',
+            mockito            : '2.23.4',
+            cucumber_android   : '1.2.5@jar',
+            cucumber           : '1.2.4',
+            support_annotations: '24.0.0'
+    ]
+
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:${gradle_version}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
+        classpath "com.google.gms:google-services:${google_services_version}"
+
+        // it is advised from fabric to use the dynamic version to adjust it more easily with gradle
+        // noinspection GradleDynamicVersion
+        classpath "io.fabric.tools:gradle:1.+"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    debounce_navigation_in_milliseconds = 500
+
+    use_ice_servers = false
+
+    gateway_api_development = "http://10.123.73.3:3000"
+    gateway_api_production = "http://10.123.73.3:3000"
+
+    streams_api_development = "http://10.123.73.3:3000/streams.json"
+    streams_api_production = "http://10.123.73.3:3000/streams.json"
+}

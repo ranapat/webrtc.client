@@ -1,0 +1,48 @@
+<resources>
+
+    <dimen name="default_margin">40dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+
+    <dimen name="outline_padding">20dp</dimen>
+
+    <dimen name="font_size">36sp</dimen>
+
+    <dimen name="menu_font_size">14sp</dimen>
+
+    <dimen name="border_width">0dp</dimen>
+    <dimen name="border_radius">4dp</dimen>
+    <dimen name="button_radius">3dp</dimen>
+
+    <dimen name="global_spacing_xxs">16dp</dimen>
+    <dimen name="global_spacing_xs">20dp</dimen>
+    <dimen name="global_spacing_s">32dp</dimen>
+    <dimen name="global_spacing_m">42dp</dimen>
+    <dimen name="global_spacing_l">64dp</dimen>
+
+    <dimen name="icon_size">62dp</dimen>
+    <dimen name="logo_height">64dp</dimen>
+
+    <dimen name="flag_icon_width">70dp</dimen>
+    <dimen name="flag_icon_height">52dp</dimen>
+    <dimen name="flag_padding">8dp</dimen>
+
+    <dimen name="languages_popup_height">400dp</dimen>
+    <dimen name="languages_popup_list_margin_top">30dp</dimen>
+
+    <dimen name="fast_scroller_width">14dp</dimen>
+    <dimen name="fast_scroller_height">76dp</dimen>
+    <dimen name="fast_scroller_text_size">54sp</dimen>
+    <dimen name="fast_scroller_text_shape">98dp</dimen>
+
+    <dimen name="top_menu_outline_spacing">16dp</dimen>
+    <dimen name="top_menu_outline_margin">18dp</dimen>
+
+    <dimen name="drawer_menu_item_height">54dp</dimen>
+    <dimen name="drawer_menu_item_line_offset">52dp</dimen>
+    <dimen name="drawer_menu_header_line_offset">55dp</dimen>
+    <dimen name="drawer_menu_horizontal_padding">24dp</dimen>
+    <dimen name="drawer_menu_line_horizontal_padding">8dp</dimen>
+
+    <dimen name="call_state_icon_size">150dp</dimen>
+
+</resources>

@@ -1,0 +1,147 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainActivity">
+
+    <include layout="@layout/layout_header" />
+
+    <View
+        android:id="@+id/dividerTop"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/global_spacing_xs"
+        android:background="@color/ak_light_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoImageView" />
+
+    <FrameLayout
+        android:id="@+id/recyclerViewContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/dividerBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dividerTop">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_stream" />
+
+        <include layout="@layout/layout_empty_stream_list" />
+
+        <include layout="@layout/layout_fast_scroller" />
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/searchOpenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/global_spacing_xs"
+        android:background="?selectableItemBackgroundBorderless"
+        android:contentDescription="@string/search"
+        android:padding="@dimen/global_spacing_xs"
+        android:paddingEnd="50dp"
+        android:src="@drawable/ic_search_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="RtlSymmetry" />
+
+    <View
+        android:id="@+id/dividerBottom"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/ak_light_gray"
+        app:layout_constraintBottom_toTopOf="@id/barrierBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/searchBackgroundView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/ak_white"
+        app:layout_constraintBottom_toBottomOf="@+id/searchEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/searchTopSpace" />
+
+    <ImageView
+        android:id="@+id/searchCloseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/global_spacing_xs"
+        android:background="?selectableItemBackgroundBorderless"
+        android:contentDescription="@string/close_search"
+        android:src="@drawable/ic_arrow_blue"
+        app:layout_constraintBottom_toBottomOf="@+id/searchEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/searchEditText" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/searchEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/global_spacing_xs"
+        android:layout_marginBottom="@dimen/global_spacing_xxs"
+        android:autofillHints="username"
+        android:fontFamily="@font/verdana"
+        android:hint="@string/search"
+        android:imeOptions="actionDone"
+        android:inputType="textCapSentences"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/searchClearButton"
+        app:layout_constraintStart_toEndOf="@id/searchCloseButton" />
+
+    <Space
+        android:id="@+id/searchTopSpace"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/global_spacing_xxs"
+        app:layout_constraintBottom_toTopOf="@id/searchEditText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/searchClearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/global_spacing_xs"
+        android:background="?selectableItemBackgroundBorderless"
+        android:contentDescription="@string/clear_search"
+        android:src="@drawable/ic_close_blue"
+        app:layout_constraintBottom_toBottomOf="@id/searchEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/searchEditText" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/actionBottomBarGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:constraint_referenced_ids="searchOpenButton"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/searchBottomBarGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:constraint_referenced_ids="searchBackgroundView,searchCloseButton,searchEditText,searchClearButton"
+        tools:visibility="gone" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="searchOpenButton,searchBackgroundView"
+        tools:layout_editor_absoluteY="962dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

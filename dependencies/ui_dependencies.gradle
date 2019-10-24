@@ -1,0 +1,15 @@
+dependencies {
+    implementation "androidx.appcompat:appcompat:${appcompat}"
+    implementation "androidx.preference:preference:${preference}"
+    implementation "androidx.constraintlayout:constraintlayout:${constraint_layout}"
+    implementation "com.google.android.material:material:${material}"
+    implementation "com.daimajia.swipelayout:library:${swipelayout}"
+    implementation "com.github.bumptech.glide:glide:${glide}"
+    implementation "androidx.cardview:cardview:${cardview}"
+    implementation "eu.davidea:flexible-adapter:${flexible_rv_adapter}"
+    implementation "eu.davidea:flexible-adapter-ui:${flexible_rv_adapter_ui}"
+    implementation "androidx.gridlayout:gridlayout:${grid_layout}"
+    implementation "com.airbnb.android:lottie:${lottie}"
+    implementation "io.supercharge:shimmerlayout:${shimmer_layout}"
+    kapt "com.github.bumptech.glide:compiler:${glide}"
+}

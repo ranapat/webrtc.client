@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="Theme.App" parent="Theme.AppCompat.DayNight">
+        <item name="colorPrimary">@color/ak_blue</item>
+        <item name="colorPrimaryDark">@color/ak_blue</item>
+        <item name="colorAccent">@color/ak_blue</item>
+
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="listPreferredItemHeightSmall">@dimen/drawer_menu_item_height</item>
+
+        <item name="android:windowBackground">@color/ak_white</item>
+
+        <item name="android:textAppearanceSmall">@style/TextAppearance</item>
+
+        <item name="android:alertDialogTheme">@style/AppAlertDialogTheme</item>
+
+    </style>
+
+    <style name="AppAlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textAppearanceSmall">@style/TextAppearance</item>
+    </style>
+
+</resources>

@@ -1,0 +1,37 @@
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
+ext {
+    releaseNotes = this.&releaseNotes
+    getCurrentFlavor = this.&getCurrentFlavor
+}
+
+def releaseNotes() {
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine "../release/diff"
+        standardOutput = stdout
+    }
+    stdout.toString().replaceAll("\n", "\\\\n")
+}
+
+def getCurrentFlavor() {
+    final Gradle gradle = getGradle()
+    final String tskReqStr = gradle.getStartParameter().getTaskRequests().toString()
+
+    final Pattern pattern
+
+    if (tskReqStr.contains("assemble")) {
+        pattern = Pattern.compile("assemble(\\w+)(Release|Debug)")
+    } else {
+        pattern = Pattern.compile("generate(\\w+)(Release|Debug)")
+    }
+
+    final Matcher matcher = pattern.matcher(tskReqStr)
+
+    if (matcher.find()) {
+        return matcher.group(1).toLowerCase()
+    } else {
+        return ""
+    }
+}

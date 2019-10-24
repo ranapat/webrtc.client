@@ -1,0 +1,112 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
+apply plugin: "kotlin-kapt"
+apply from: "./jacoco.gradle"
+apply from: "../dependencies/ui_dependencies.gradle"
+apply from: "../dependencies/core_dependencies.gradle"
+apply from: "../dependencies/test_dependencies.gradle"
+apply from: "../gradle/util-tasks.gradle"
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    compileSdkVersion sdk_compile_version
+
+    defaultConfig {
+        applicationId "org.ranapat.webrtc.example"
+        testApplicationId "org.ranapat.webrtc.example.test"
+
+        minSdkVersion sdk_min_version
+        targetSdkVersion sdk_target_version
+
+        versionCode version_code
+        versionName version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        def flavor = getCurrentFlavor()
+        if (flavor == "device" || flavor == "production") {
+            println("!!! Preparing build with jniLibs ...")
+            main.jniLibs.srcDir("jniLibs")
+        }
+
+        androidTest {
+            assets.srcDirs = ["src/androidTest/assets"]
+        }
+        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+    }
+
+    testOptions {
+        unitTests.all {
+            // All the usual Gradle options.
+        }
+        unitTests.returnDefaultValues = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+
+            buildConfigField("long", "debounce_navigation_in_milliseconds", "${debounce_navigation_in_milliseconds}")
+            buildConfigField("boolean", "use_ice_servers", "${use_ice_servers}")
+        }
+
+        debug {
+            testCoverageEnabled true
+
+            buildConfigField("long", "debounce_navigation_in_milliseconds", "${debounce_navigation_in_milliseconds}")
+            buildConfigField("boolean", "use_ice_servers", "${use_ice_servers}")
+
+            buildConfigField "String", "TEST_TAGS", "\"${getTestTags()}\""
+        }
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        development {
+            dimension "default"
+
+            buildConfigField("String", "gateway_api", "\"${gateway_api_development}\"")
+            buildConfigField("String", "streams_api", "\"${streams_api_development}\"")
+        }
+
+        production {
+            dimension "default"
+
+            buildConfigField("String", "gateway_api", "\"${gateway_api_production}\"")
+            buildConfigField("String", "streams_api", "\"${streams_api_production}\"")
+        }
+    }
+
+    lintOptions {
+        disable "PrivateResource", "ProtectedPermissions"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.aar", "*.jar"], exclude: [])
+}
+
+tasks.matching { it instanceof Test }.all {
+    testLogging.events = ["failed", "passed", "skipped"]
+}
+
+def getTestTags() {
+    return project.hasProperty("tags") ? project.getProperties().get("tags") : ""
+}
+
+task devTests(type: GradleBuild) {
+    group = "local development"
+    tasks = ["lintDevelopmentDebug", "testDevelopmentDebugUnitTestCoverage"]
+    doLast {
+        //
+    }
+}

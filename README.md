@@ -1,6 +1,6 @@
-# example webrtc android client
+# webrtc android client
 
-Example WebRTC android client.
+WebRTC android client.
 
 For backend use [webrtc.server](https://github.com/ranapat/webrtc.server)
 
